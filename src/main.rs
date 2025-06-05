@@ -4,6 +4,7 @@ use chrono::{Date, Local};
 struct ImportantEvent {
     what: String,
     when: Date<Local>,
+
 }
 
 trait Deadline {
@@ -12,7 +13,8 @@ trait Deadline {
 
 impl Deadline for ImportantEvent {
     fn is_passed(&self) -> bool {
-        todo!();
+        self.when < Local::today()
+        
     }
 }
 
